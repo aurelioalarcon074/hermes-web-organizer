@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión - CorreoOrganizer{% endblock %}
+{% block content %}
+<div class="starter-template">
+  <h1>Iniciar sesión</h1>
+  <form method="POST" action="{{ url_for('login') }}" class="w-50 mx-auto">
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>
+  <p class="mt-3">
+    ¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a>
+  </p>
+</div>
+{% endblock %}

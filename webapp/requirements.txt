@@ -1,0 +1,1 @@
+Flask==2.3.3\nWTForms==3.0.1\nemail-validator==2.0.0.post2\npynacl==1.5.0\n
