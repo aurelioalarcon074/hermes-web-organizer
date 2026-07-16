@@ -1,0 +1,34 @@
+name: Build and Package Web App
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd webapp
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Package webapp
+        run: |
+          cd ..
+          zip -r hermes-webapp.zip webapp/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hermes-webapp
+          path: hermes-webapp.zip
