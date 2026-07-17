@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: hermes-web
+    env: python
+    buildCommand: pip install -r webapp/requirements.txt
+    startCommand: python webapp/app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
